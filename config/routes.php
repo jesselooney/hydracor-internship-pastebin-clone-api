@@ -44,16 +44,16 @@ use Cake\Routing\RouteBuilder;
 /** @var \Cake\Routing\RouteBuilder $routes */
 $routes->setRouteClass(DashedRoute::class);
 
-$routes->scope('/', function (RouteBuilder $routes) {
+$routes->scope('/api/v1', function (RouteBuilder $routes) {
     $routes->setExtensions(['json']);
     $routes->resources('Pastes');
     
     // Users resource routes
-    $routes->get('/users', ['controller' => 'Users', 'action' => 'view']);
-    $routes->post('/users', ['controller' => 'Users', 'action' => 'add']);
-    $routes->put('/users', ['controller' => 'Users', 'action' => 'edit']);
-    $routes->delete('/users', ['controller' => 'Users', 'action' => 'delete']);
+    $routes->get('/api/v1/users', ['controller' => 'Users', 'action' => 'view']);
+    $routes->post('/api/v1/users', ['controller' => 'Users', 'action' => 'add']);
+    $routes->put('/api/v1/users', ['controller' => 'Users', 'action' => 'edit']);
+    $routes->delete('/api/v1/users', ['controller' => 'Users', 'action' => 'delete']);
 
 });
 
-$routes->connect('/login', ['controller' => 'Users', 'action' => 'login']);
+$routes->connect('/api/v1/login', ['controller' => 'Users', 'action' => 'login']);
